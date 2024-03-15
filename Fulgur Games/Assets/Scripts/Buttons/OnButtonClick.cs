@@ -1,4 +1,5 @@
-using System;
+using CustomEventBus;
+using CustomEventBus.Signals;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +7,12 @@ public class OnButtonClick : MonoBehaviour
 {
     public TypeOfResource TypeResource;
     private Button _button;
+    private EventBus _eventbus;
+
     void Start()
     {
+        _eventbus = ServiceLocator.Current.Get<EventBus>();
+
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
     }
@@ -17,10 +22,10 @@ public class OnButtonClick : MonoBehaviour
         switch(TypeResource)
         {
             case TypeOfResource.gold:
-                GameManager.OnGoldCountChange?.Invoke();
+                _eventbus?.Invoke(new PressGoldenButtonSignal());
                 break;
             case TypeOfResource.silver:
-                GameManager.OnSilverCountChange?.Invoke();
+                _eventbus?.Invoke(new PressSilverButtonSignal());
                 break;
         }
     }
