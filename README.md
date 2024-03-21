@@ -2,4 +2,4 @@
 <p>A test game that shows knowledge of architectural solutions such as Entity Bus and ServiceLocator.
 <p><p>It has two buttons that adds an amount of gold and silver
 
-![ScreenOfTheGame](https://github.com)
+![ScreenOfTheGame](https://github.com/Ninetto77/Fulgur-Games/blob/main/fulgurGames.png)
